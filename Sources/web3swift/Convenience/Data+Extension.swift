@@ -72,7 +72,7 @@ public extension Data {
                 //     return nil
                 // }
             }
-            if let notNilResult = result, notNilResult == errSecSuccess {
+            if let notNilResult = result, notNilResult == 1 {
                 return data
             }
         }

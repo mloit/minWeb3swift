@@ -381,7 +381,7 @@ extension SECP256K1 {
                 //     return nil
                 // }
             }
-            if let res = result, res == errSecSuccess {
+            if let res = result, res == 1 {
                 return data
             } else {
                 continue
