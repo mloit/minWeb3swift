@@ -111,24 +111,24 @@ public struct Web3Signer {
         }
     }
     
-    public static func signEIP712(safeTx: SafeTx,
-              keystore: BIP32Keystore,
-              verifyingContract: EthereumAddress,
-              account: EthereumAddress,
-              password: String? = nil,
-              chainId: BigUInt? = nil) throws -> Data {
+    // public static func signEIP712(safeTx: SafeTx,
+    //           keystore: BIP32Keystore,
+    //           verifyingContract: EthereumAddress,
+    //           account: EthereumAddress,
+    //           password: String? = nil,
+    //           chainId: BigUInt? = nil) throws -> Data {
     
-        let domainSeparator: EIP712DomainHashable = EIP712Domain(chainId: chainId, verifyingContract: verifyingContract)
+    //     let domainSeparator: EIP712DomainHashable = EIP712Domain(chainId: chainId, verifyingContract: verifyingContract)
         
-        let password = password ?? ""
-        let hash = try eip712encode(domainSeparator: domainSeparator, message: safeTx)
+    //     let password = password ?? ""
+    //     let hash = try eip712encode(domainSeparator: domainSeparator, message: safeTx)
         
-        guard let signature = try Web3Signer.signPersonalMessage(hash, keystore: keystore, account: account, password: password) else {
-            throw Web3Error.dataError
-        }
+    //     guard let signature = try Web3Signer.signPersonalMessage(hash, keystore: keystore, account: account, password: password) else {
+    //         throw Web3Error.dataError
+    //     }
         
-        return signature;
-    }
+    //     return signature;
+    // }
     
 }
 
