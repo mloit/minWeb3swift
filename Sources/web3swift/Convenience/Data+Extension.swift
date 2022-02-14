@@ -10,8 +10,12 @@ import Crypto
 public extension Data {
     
     init<T>(fromArray values: [T]) {
-        var values = values
-        self.init(buffer: UnsafeBufferPointer(start: &values, count: values.count))
+        let values = values
+        let ptrUBB = values.withUnsafeBufferPointer { (body: UnsafeBufferPointer) in
+            return body
+        }
+        self.init(buffer: ptrUBB)
+        //self.init(buffer: UnsafeBufferPointer(start: &values, count: values.count))
     }
     
     func toArray<T>(type: T.Type) throws -> [T] {
